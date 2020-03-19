@@ -132,4 +132,4 @@ elif Choice=='m':
     print("All inp files written")
 
 else:
-    print("Wrong input : [s/m] - Respect letter case - Hey Hey")
+    print("Wrong input : [s/m] - Respect letter case")
