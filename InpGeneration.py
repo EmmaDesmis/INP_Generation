@@ -53,7 +53,9 @@ def INP_Material(MAT,E,nu,K,E0,n):
     return NewMAT[:-1] + MAT[80:]
 
 def INP_Generation(INP,E,nu,K,E0,n,t,i,Mat): # i: simulation number (Job Name)
-    NewINP = INP[0:22] + Mat + '_SPT_{:04d}'.format(i) + INP[25:245]   # initial section of the inp file 
+    NewINP = INP[0:22] + Mat + '_SPT_{:04d}'.format(i) + INP[25:47]   # initial section of the inp file 
+    NewINP = NewINP + '\n** E = '+str(E)+'\n** nu = '+str(nu)+'\n** K = '+str(K)
+    NewINP = NewINP + '\n** e0 = '+str(E0)+'\n** n = '+str(n)+'\n** t = '+str(t) + INP[47:245]
     NewINP = NewINP + INP_NODES(INP[245:28360],t)   # nodes location as a function of t
     NewINP = NewINP + INP[28360:47929]
     NewINP = NewINP + INP_DIES(INP[47929:49190],t)
